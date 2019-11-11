@@ -78,7 +78,6 @@ def test_item_get_invalid_mimetype(app, test_records):
         assert res.status_code == 406
 
 
-@pytest.mark.skip
 def test_item_get_cached(app, test_records):
     """Test to emulate different content types and caching issue."""
     with app.test_client() as client:
