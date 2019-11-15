@@ -30,7 +30,7 @@ tests_require = [
     'invenio-config>=1.0.2',
 ]
 
-invenio_search_version = '1.2.0'
+invenio_search_version = '1.2.3'
 
 extras_require = {
     'elasticsearch2': [

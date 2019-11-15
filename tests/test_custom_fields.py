@@ -8,7 +8,6 @@
 
 """Invenio custom schema fields tests."""
 
-import pytest
 from invenio_pidstore.models import PersistentIdentifier as PIDModel
 from invenio_records import Record
 from invenio_rest.serializer import BaseSchema as Schema
@@ -20,11 +19,10 @@ from invenio_records_rest.schemas.fields import DateString, GenFunction, \
     GenMethod, PersistentIdentifier, SanitizedHTML, SanitizedUnicode, \
     TrimmedString
 
+schema_to_use = StrictKeysMixin
 if marshmallow_version[0] >= 3:
     schema_to_use = Schema
     from marshmallow import EXCLUDE
-else:
-    schema_to_use = StrictKeysMixin
 
 
 class CustomFieldSchema(schema_to_use):

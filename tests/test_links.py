@@ -18,7 +18,6 @@ from helpers import create_record, get_json, record_url
 
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
 from invenio_records_rest.links import default_links_factory_with_additional
-from invenio_records_rest.views import create_blueprint
 
 
 def test_default_links_factory_with_additional(app, db):
@@ -47,7 +46,6 @@ def test_old_signature_backward_compatibility(app, test_records):
     This old signature was links_factory(pid), without "record" and "**kwargs"
     parameters.
     """
-    # blueprint = create_blueprint(config)
     with app.test_client() as client:
         pid, record = test_records[0]
 

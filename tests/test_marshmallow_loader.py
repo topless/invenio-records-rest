@@ -15,7 +15,6 @@ from copy import deepcopy
 
 import pytest
 from helpers import get_json
-from invenio_records.api import Record
 from invenio_records.models import RecordMetadata
 from invenio_rest.serializer import BaseSchema as Schema
 from marshmallow import ValidationError
@@ -25,8 +24,7 @@ from marshmallow import fields
 from invenio_records_rest.loaders import json_pid_checker
 from invenio_records_rest.loaders.marshmallow import MarshmallowErrors, \
     marshmallow_loader
-from invenio_records_rest.schemas import Nested, RecordMetadataSchemaJSONV1, \
-    RecordSchemaJSONV1
+from invenio_records_rest.schemas import Nested
 from invenio_records_rest.schemas.fields import PersistentIdentifier
 
 
@@ -51,12 +49,12 @@ class _TestSchemaNested(Schema):
 
 
 class _TestMetadataSchema(Schema):
-        """Test schema."""
+    """Test schema."""
 
-        title = fields.Str()
-        stars = fields.Integer()
-        year = fields.Integer()
-        control_number = PersistentIdentifier()
+    title = fields.Str()
+    stars = fields.Integer()
+    year = fields.Integer()
+    control_number = PersistentIdentifier()
 
 
 def test_marshmallow_load(app, db, es, test_data, search_url, search_class):
